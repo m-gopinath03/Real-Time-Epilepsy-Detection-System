@@ -20,11 +20,16 @@ The Epilepsy Monitoring System is a project aimed at real-time monitoring and cl
 To install the necessary dependencies, follow these steps:
 1. Clone the repository:
 Clone the project repository by executing the following command in your terminal:
+
    git clone <https://github.com/m-gopinath03/Real-Time-Epilepsy-Detection-System-.git>
+   
 2. Navigate to the project directory:
-  cd epilepsy_monitoring_system
+
+   cd epilepsy_monitoring_system
+   
 3. Install the required Python packages:
-  pip install -r requirements.txt   
+
+   pip install -r requirements.txt   
 
 ## Usage
 
