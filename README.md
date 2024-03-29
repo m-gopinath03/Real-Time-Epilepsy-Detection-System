@@ -28,13 +28,19 @@ To install the necessary dependencies, follow these steps:
   pip install -r requirements.txt   
 
 ## Usage
-Data Pipeline: Run the data_pipeline.py script to preprocess video data, extract relevant features, balance the dataset, and prepare it for model training.
 
+### Data Pipeline
+Run the `data_pipeline.py` script to preprocess video data, extract relevant features, balance the dataset, and prepare it for model training.
+
+bash
 python data_pipeline.py
 
-Model Development: Train and tune the deep learning model using the model_development.ipynb notebook. This notebook utilizes Keras Tuner to perform hyperparameter optimization and selects the best model for deployment.
 
-Model Deployment: Deploy the trained model using the tkinter_deployment.ipynb notebook. This notebook contains the GUI application for real-time monitoring and classification of activities.
+### Model Development
+Train and tune the deep learning model using the `model_development.ipynb` notebook. This notebook utilizes Keras Tuner for hyperparameter optimization and selects the best model for deployment.
+
+### Model Deployment
+Deploy the trained model using the `tkinter_deployment.ipynb` notebook. This notebook includes the GUI application for real-time monitoring and classification of activities.
 
 ## Project Structure
 The project structure is organized as follows:
