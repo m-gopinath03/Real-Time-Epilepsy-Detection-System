@@ -1,0 +1,12 @@
+opencv-python==4.5.3.56
+mediapipe==0.8.7.1
+numpy==1.21.2
+pandas==1.3.3
+scikit-learn==0.24.2
+imbalanced-learn==0.8.1
+moviepy==1.0.3
+tensorflow==2.7.0
+kerastuner==1.0.4
+keras==2.6.0
+tk==0.1.0
+Pillow==8.4.0
