@@ -19,10 +19,9 @@ The Epilepsy Monitoring System is a project aimed at real-time monitoring and cl
 ## Installation
 To install the necessary dependencies, follow these steps:
 1. Clone the repository:
-   bash
-   git clone <https://github.com/m-gopinath03/Real-Time-Epilepsy-Detection-System-/edit/main/README.md>
+Clone the project repository by executing the following command in your terminal:
+   git clone <https://github.com/m-gopinath03/Real-Time-Epilepsy-Detection-System-.git>
 2. Navigate to the project directory:
-  bash
   cd epilepsy_monitoring_system
 3. Install the required Python packages:
   pip install -r requirements.txt   
@@ -32,7 +31,7 @@ To install the necessary dependencies, follow these steps:
 ### Data Pipeline
 Run the `data_pipeline.py` script to preprocess video data, extract relevant features, balance the dataset, and prepare it for model training.
 
-bash
+To execute the data preprocessing pipeline, simply run the following commands in your terminal:
 python data_pipeline.py
 
 
@@ -58,8 +57,15 @@ The project structure is organized as follows:
 The deep learning model architecture consists of LSTM layers followed by a custom attention layer for sequence processing. It also includes convolutional layers for feature extraction and dense layers for classification. Hyperparameter tuning is performed using Keras Tuner to optimize model performance.
 
 ## Datasets
-The project utilizes video datasets containing recordings of normal activities and seizure events. The datasets are preprocessed to extract pose, face, and hand landmarks using the MediaPipe library. However, the dataset is not provided at the moment, but a data pipeline to model development has been established with all necessary components in place for the time being.
-
+To prepare the dataset for model training, a Makefile script is provided to automate the data preprocessing pipeline. This pipeline consists of three main steps:
+- `Data Extraction`: Extracts relevant features from video data and saves them in CSV format.
+- `Data Balancing`: Balances the dataset by augmenting the data to ensure equal representation of classes.
+- `Data Labelling`: Labels the preprocessed data and saves it in a pickle format for easy access during model training.
+To execute the data preprocessing pipeline, simply run the following commands in your terminal:
+make extract 
+make balance
+make label
+make preprocess this is for over all datapipeline
 ## Model Development
 
 **To develop the deep learning model, follow these steps:**
