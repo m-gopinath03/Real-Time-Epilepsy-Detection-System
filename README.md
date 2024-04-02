@@ -92,15 +92,7 @@ To understand how the model's accuracy evolves over the training epochs, a visua
 
 ### Model Evaluation
 
-After training, the final model is evaluated using various metrics, including the Receiver Operating Characteristic (ROC) curve, Area Under the Curve (AUC), and confusion matrix.
-
-- **ROC Curve**: The ROC curve is a graphical representation of the true positive rate (sensitivity) against the false positive rate (1-specificity) at various threshold settings. It helps visualize the trade-off between sensitivity and specificity and is useful for assessing the model's classification performance across different thresholds.
-
-- **AUC (Area Under the Curve)**: The AUC quantifies the overall performance of the model by measuring the area under the ROC curve. A higher AUC value indicates better discriminative ability of the model in distinguishing between positive and negative classes.
-
-- **Confusion Matrix**: The confusion matrix provides a tabular summary of the model's predictions compared to the ground truth labels. It includes metrics such as true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN), which are useful for assessing the model's classification accuracy and error types.
-
-The evaluation metrics help in gauging the effectiveness of the developed model and provide valuable insights for further improvements and optimizations.
+After training, the final model is evaluated using metrics like the ROC curve, AUC, and confusion matrix. The ROC curve shows the trade-off between sensitivity and specificity, while AUC quantifies overall performance. The confusion matrix summarizes model predictions compared to ground truth labels, providing insights into classification accuracy and error types. These metrics help assess model effectiveness and guide further improvements.
 
 ## Model Deployment
 
@@ -121,6 +113,7 @@ This project is licensed under the MIT License.
 
 ## Contributors
 M Gopinath : Project Lead
+
 Rahul Shukla : Data Preprocessing
 
 Contributions are welcome! Feel free to open issues or submit pull requests.
