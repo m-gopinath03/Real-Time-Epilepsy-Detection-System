@@ -1,4 +1,4 @@
-# Epilepsy Monitoring System
+# Epilepsy Detection System
 
 ## Overview
 The Epilepsy Monitoring System is a project aimed at real-time monitoring and classification of human activities, particularly focusing on detecting seizures. It utilizes deep learning models to analyze live video streams of human activities and classify them as either normal or indicative of a seizure. The system provides timely alerts in case of a seizure detection, enabling prompt medical intervention.
