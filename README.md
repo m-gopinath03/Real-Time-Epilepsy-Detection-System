@@ -152,7 +152,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - **MediaPipe Team**: For robust landmark detection framework
 - **TensorFlow Community**: For deep learning infrastructure
 - **Medical Research Community**: For epilepsy detection insights
-- **Contributors**: M Gopinath (Project Lead), Rahul Shukla (Data Preprocessing)
+- **Contributors**: M Gopinath, Rahul Shukla
 ## 📞 Contact
 - **Lead Developer**: M Gopinath - mgopinath032398@gmail.com
 - **Issues**: GitHub Issues
