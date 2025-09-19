@@ -1,129 +1,161 @@
-# Epilepsy Detection System
-
-## Overview
-The Epilepsy Monitoring System is a project aimed at real-time monitoring and classification of human activities, particularly focusing on detecting seizures. It utilizes deep learning models to analyze live video streams of human activities and classify them as either normal or indicative of a seizure. The system provides timely alerts in case of a seizure detection, enabling prompt medical intervention.
-
-## Table of Contents
-- Installation
-- Usage
-- Project Structure
-- Model Architecture
-- Datasets
-- Evaluation Metrics
-- Examples and Tutorials
-- License
-- Contributors
-- Acknowledgments
-- Contact
-
-## Installation
-To install the necessary dependencies, follow these steps:
-1. Clone the repository:
-Clone the project repository by executing the following command in your terminal:
-
-   git clone <https://github.com/m-gopinath03/Real-Time-Epilepsy-Detection-System-.git>
-   
-2. Navigate to the project directory:
-
-   cd epilepsy_monitoring_system
-   
-3. Install the required Python packages:
-
-   pip install -r requirements.txt   
-
-## Usage
-
-### Data Pipeline
-Run the `data_pipeline.py` script to preprocess video data, extract relevant features, balance the dataset, and prepare it for model training.
-
-To execute the data preprocessing pipeline, simply run the following commands in your terminal:
-python data_pipeline.py
-
-
-### Model Development
-Train and tune the deep learning model using the `model_development.ipynb` notebook. This notebook utilizes Keras Tuner for hyperparameter optimization and selects the best model for deployment.
-
-### Model Deployment
-Deploy the trained model using the `tkinter_deployment.ipynb` notebook. This notebook includes the GUI application for real-time monitoring and classification of activities.
-
-## Project Structure
-The project structure is organized as follows:
-
-- `data/`: Contains preprocessed CSV data files and raw video data (Absent).
-- `notebooks/`: Includes Jupyter notebooks for data processing, model development, evaluation, and deployment.
-- `scripts/`: Contains Python scripts for data preprocessing and other utility functions.
-- `models/`: Stores the trained model files.
-- `README.md`: Main documentation file.
-- `requirements.txt`: Lists all Python dependencies.
-- `LICENSE`: License information.
-- `.gitignore`: Specifies files and directories to be ignored by Git.
+# Real-Time Epilepsy Detection System 🧠⚡
+A comprehensive deep learning system for real-time epilepsy seizure detection using computer vision and human pose estimation. The system analyzes live video streams to classify human activities as normal or indicative of seizures, providing timely medical alerts.
+## 🌟 Features
+### Advanced Computer Vision
+- **MediaPipe Integration**: Holistic landmark extraction for pose, face, and hand tracking
+- **Real-Time Processing**: Live video stream analysis with 25 FPS processing
+- **Multi-Modal Detection**: Combines pose landmarks, facial expressions, and hand movements
+- **Robust Tracking**: High confidence detection with missing landmark compensation
+### Deep Learning Architecture
+- **LSTM Networks**: Sequential pattern recognition for temporal activity analysis
+- **CNN Integration**: Spatial feature extraction with 1D convolutions
+- **Attention Mechanism**: Custom attention layer for feature prioritization
+- **Hyperparameter Optimization**: Keras Tuner for automated model tuning
+### Data Processing & Balancing
+- **SMOTE Implementation**: Synthetic minority oversampling for dataset balancing
+- **Automated Pipeline**: Makefile-driven preprocessing with configurable parameters
+- **Feature Engineering**: 321-dimensional feature vectors from landmark coordinates
+- **Temporal Segmentation**: 75-frame sliding windows for sequence analysis
+### Real-Time Deployment
+- **Tkinter GUI**: User-friendly interface for live monitoring
+- **Seizure Timer**: Duration tracking for epileptic episodes
+- **Visual Feedback**: Real-time activity classification display
+- **Alert System**: Immediate notifications for seizure detection
+## 🎬 Demo
+### Real-Time Detection Interface
+- Live webcam feed with landmark visualization
+- Real-time seizure/normal classification
+- Seizure duration timing and monitoring
+- Visual pose estimation overlays
   
-## Model Architecture
-The deep learning model architecture consists of LSTM layers followed by a custom attention layer for sequence processing. It also includes convolutional layers for feature extraction and dense layers for classification. Hyperparameter tuning is performed using Keras Tuner to optimize model performance.
+## 🏗️ Architecture
+[20]
+```
+Real-Time-Epilepsy-Detection-System/
+├── notebooks/                    # Jupyter notebooks for development
+│   ├── data_extraction.ipynb    # Video processing & landmark extraction
+│   ├── data_labelling_balancing.ipynb  # SMOTE balancing & segmentation
+│   ├── model_development.ipynb  # LSTM-CNN model with attention
+│   ├── model_evaluation.ipynb   # Performance metrics & visualization
+│   └── tkinter_deploying.ipynb  # Real-time GUI deployment
+├── scripts/                     # Automation scripts
+│   ├── data_pipeline.py        # Complete preprocessing pipeline
+│   └── Makefile                # Build automation for data processing
+├── requirements.txt            # Python dependencies
+└── README.md                  # Project documentation
+```
+## 🚀 Quick Start
+### Prerequisites
+- **Python 3.8+**
+- **Webcam** (for real-time detection)
+- **GPU Support** (recommended for training)
+### Installation
+1. **Clone Repository**:
+   ```bash
+   git clone https://github.com/m-gopinath03/Real-Time-Epilepsy-Detection-System.git
+   cd Real-Time-Epilepsy-Detection-System
+   ```
+2. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Prepare Data Structure**:
+   ```bash
+   mkdir -p data/{videos/{seizure,normal},CSV/{seizure,normal},pickle}
+   ```
+4. **Run Data Pipeline**:
+   ```bash
+   cd scripts
+   make preprocess  # Complete pipeline
+   # OR individual steps:
+   make extract    # Video processing & landmark extraction
+   make balance    # Dataset balancing with SMOTE
+   make label      # Temporal segmentation & labeling
+   ```
+5. **Train Model**:
+   ```bash
+   jupyter notebook notebooks/model_development.ipynb
+   ```
+6. **Deploy Real-Time System**:
+   ```bash
+   jupyter notebook notebooks/tkinter_deploying.ipynb
+   ```
+### First Steps
+1. **Data Preparation**: Place seizure and normal videos in respective folders
+2. **Feature Extraction**: Run landmark extraction on video datasets
+3. **Model Training**: Train LSTM-CNN model with hyperparameter tuning
+4. **Real-Time Testing**: Launch GUI application for live detection
+## 🛠️ Tech Stack
+| Category | Technology | Purpose |
+|----------|------------|---------|
+| **Computer Vision** | MediaPipe 0.8.7 | Holistic landmark detection |
+| **Deep Learning** | TensorFlow 2.7.0 | Model training & inference |
+| **Video Processing** | OpenCV 4.5.3 | Real-time video capture |
+| **Data Processing** | Pandas 1.3.3 | Data manipulation |
+| **Model Tuning** | Keras Tuner 1.0.4 | Hyperparameter optimization |
+| **Data Balancing** | Imbalanced-learn 0.8.1 | SMOTE implementation |
+| **GUI Framework** | Tkinter | Real-time interface |
+| **Video Editing** | MoviePy 1.0.3 | Video preprocessing |
+| **Build System** | Makefile | Pipeline automation |
 
-## Datasets
-To prepare the dataset for model training, a Makefile script is provided to automate the data preprocessing pipeline. This pipeline consists of three main steps:
-- `Data Extraction`: Extracts relevant features from video data and saves them in CSV format.
-- `Data Balancing`: Balances the dataset by augmenting the data to ensure equal representation of classes.
-- `Data Labelling`: Labels the preprocessed data and saves it in a pickle format for easy access during model training.
-To execute the data preprocessing pipeline, simply run the following commands in your terminal:
-make extract 
-make balance
-make label
-make preprocess this is for over all datapipeline
-## Model Development
+## 📊 Model Evaluation
+### Performance Metrics
+- **Accuracy**: Training and validation accuracy tracking
+- **ROC Curve**: True positive vs false positive rate analysis
+- **AUC Score**: Area under curve for model performance
+- **Confusion Matrix**: Detailed classification results
+- **Precision/Recall**: Seizure detection sensitivity
 
-**To develop the deep learning model, follow these steps:**
+## 🖥️ Real-Time Deployment
+### GUI Application Features
+- **Live Video Feed**: Real-time webcam processing
+- **Landmark Visualization**: MediaPipe pose estimation overlay
+- **Classification Display**: Normal/Seizure status indication
+- **Timer Functionality**: Seizure duration tracking
+- **Alert System**: Visual notifications for detections
 
-1. Load the data from pickle files containing preprocessed features.
-2. Define the model architecture including LSTM layers, convolutional layers, attention mechanism, and dense layers.
-3. Utilize Keras Tuner to search for the best hyperparameters, such as the number of LSTM units, convolutional units, dense units, dropout rate, and learning rate.
-4. Train the final model with the best hyperparameters selected from the search.
-5. Evaluate the final model's performance on the test dataset to assess its accuracy and loss.
+## 📈 Key Features Comparison
+| Feature | Training Phase | Real-Time Phase | Evaluation |
+|---------|---------------|-----------------|------------|
+| **Data Processing** | ✅ SMOTE Balancing | ❌ Live Processing | ✅ Metrics Analysis |
+| **Model Architecture** | ✅ LSTM-CNN-Attention | ✅ Inference Only | ✅ Performance Plots |
+| **Landmark Detection** | ✅ Batch Processing | ✅ Real-Time Tracking | ✅ Accuracy Assessment |
+| **Temporal Analysis** | ✅ 75-Frame Sequences | ✅ Sliding Windows | ✅ Confusion Matrix |
 
-
-## Evaluation Metrics
-
-During the development and testing of the model, several key evaluation metrics are used to assess its performance.
-
-### Training History
-
-To understand how the model's accuracy evolves over the training epochs, a visualization of the training history is created. This plot illustrates the training accuracy and validation accuracy over successive epochs, providing insights into the model's learning process.
-
-### Model Evaluation
-
-After training, the final model is evaluated using metrics like the ROC curve, AUC, and confusion matrix. The ROC curve shows the trade-off between sensitivity and specificity, while AUC quantifies overall performance. The confusion matrix summarizes model predictions compared to ground truth labels, providing insights into classification accuracy and error types. These metrics help assess model effectiveness and guide further improvements.
-
-## Model Deployment
-
-To deploy the epilepsy monitoring system using the trained deep learning model, follow these steps:
-
-1. **Run the ClassifierApp**: Execute the `ClassifierApp` script to start the real-time monitoring and classification of activities. The application captures video input from the webcam, processes it using MediaPipe for landmark extraction, and feeds the extracted features into the trained model for classification.
-
-2. **Activity Classification**: The application classifies activities into "Seizure" or "Normal" based on the detected poses and facial landmarks. The classification results are displayed in real-time on the screen, indicating the current activity along with the duration of the ongoing activity.
-
-3. **Seizure Detection**: Upon detecting a seizure activity, the application initiates a timer to monitor the duration of the seizure episode. The duration is continuously updated and displayed on the screen until the seizure activity ceases.
-
-4. **Termination**: To terminate the application, press the "q" key on the keyboard. This closes the application window and stops the video feed from the webcam.
-
-Ensure that all dependencies, including OpenCV, MediaPipe, TensorFlow, and tkinter, are installed before running the application.
-
-# License
-This project is licensed under the MIT License.
-
-## Contributors
-M Gopinath : Project Lead
-
-Rahul Shukla : Data Preprocessing
-
-Contributions are welcome! Feel free to open issues or submit pull requests.
-
-Acknowledgments
-We thank the contributors to open-source libraries used in this project, including TensorFlow, Keras Tuner, MediaPipe, and others.
-
-## Contact
-
-If you have any questions, issues, or feedback regarding the Epilepsy Monitoring System, feel free to contact us:
-
-- M Gopinath: mgopinath@iitrpr.ac.in
-
+## 🔒 System Requirements
+### Hardware
+- **CPU**: Multi-core processor (Intel i5+ or AMD Ryzen 5+)
+- **GPU**: NVIDIA GPU with CUDA support (recommended)
+- **RAM**: 8GB+ (16GB recommended for training)
+- **Storage**: 10GB+ free space for datasets
+- **Webcam**: HD camera for real-time detection
+### Software
+- **OS**: Windows 10+, macOS 10.14+, or Ubuntu 18.04+
+- **Python**: 3.8-3.9 (TensorFlow compatibility)
+- **CUDA**: 11.2+ (for GPU acceleration)
+- **Memory**: Sufficient RAM for model loading (~2GB)
+## 🤝 Contributing
+### Development Workflow
+1. Fork the repository
+2. Create feature branch: `git checkout -b feature/seizure-enhancement`
+3. Implement improvements to detection accuracy
+4. Add comprehensive tests for new features
+5. Submit pull request with detailed description
+### Research Areas
+- **Multi-Modal Fusion**: Combine EEG data with video analysis
+- **Edge Deployment**: Optimize for mobile/embedded devices  
+- **Dataset Expansion**: Include more diverse seizure types
+- **Real-Time Optimization**: Reduce latency for critical applications
+## 📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+## 🙏 Acknowledgments
+- **MediaPipe Team**: For robust landmark detection framework
+- **TensorFlow Community**: For deep learning infrastructure
+- **Medical Research Community**: For epilepsy detection insights
+- **Contributors**: M Gopinath (Project Lead), Rahul Shukla (Data Preprocessing)
+## 📞 Contact
+- **Lead Developer**: M Gopinath - mgopinath032398@gmail.com
+- **Issues**: GitHub Issues
+- **Research Collaboration**: Open to academic partnerships
+---
+**🔬 Advancing Healthcare through AI** | Documentation | Research Paper
